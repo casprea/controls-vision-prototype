@@ -1103,6 +1103,975 @@
       line-height: 1.5;
       flex: 1;
     }
+
+    /* ── Control Detail Page ── */
+    .detail-header {
+      flex-shrink: 0;
+      background: var(--bg-default);
+    }
+    .detail-header-top {
+      padding: 16px 24px 12px;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+    .breadcrumb-sep { color: var(--border-default); }
+    .detail-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+    .detail-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-default);
+      line-height: 1.3;
+    }
+    .detail-meta-strip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .meta-divider {
+      width: 1px;
+      height: 12px;
+      background: var(--border-weak);
+      flex-shrink: 0;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      letter-spacing: 0.12px;
+    }
+    .meta-avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #ebd6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 700;
+      color: #771fcb;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .detail-tabs-row {
+      display: flex;
+      padding: 0 24px;
+      border-bottom: 1px solid var(--border-weak);
+    }
+    .detail-tab {
+      display: flex;
+      align-items: center;
+      height: 36px;
+      margin-right: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      letter-spacing: 0.14px;
+      white-space: nowrap;
+      transition: color 0.1s;
+    }
+    .detail-tab:hover { color: var(--text-default); }
+    .detail-tab.active {
+      color: var(--text-default);
+      border-bottom-color: var(--brand-primary);
+    }
+
+    /* Detail body layout */
+    .detail-body {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+      min-height: 0;
+    }
+    .detail-main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      background: #f5f3f3;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .detail-tab-panel { display: none; flex-direction: column; gap: 16px; }
+    .detail-tab-panel.active { display: flex; }
+    .detail-sidebar {
+      width: 320px;
+      min-width: 280px;
+      flex-shrink: 0;
+      border-left: 1px solid var(--border-weak);
+      overflow-y: auto;
+      background: var(--bg-default);
+    }
+
+    /* Content cards */
+    .content-card {
+      background: var(--bg-default);
+      border: 1px solid var(--border-weak);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border-weak);
+      min-height: 48px;
+    }
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-default);
+      letter-spacing: 0.14px;
+    }
+    .card-body { padding: 20px; }
+
+    /* Field grid (label + value pairs) */
+    .field-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      row-gap: 16px;
+      column-gap: 16px;
+      align-items: start;
+    }
+    .field-label {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      letter-spacing: 0.12px;
+      padding-top: 2px;
+    }
+    .field-value {
+      font-size: 14px;
+      color: var(--text-default);
+      letter-spacing: 0.14px;
+      line-height: 1.4;
+    }
+
+    /* Requirements list */
+    .req-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 20px;
+      border-top: 1px solid var(--border-weak);
+    }
+    .req-row:first-child { border-top: none; }
+    .req-source-tag {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--bg-neutralweak);
+      color: var(--text-secondary);
+      white-space: nowrap;
+      min-width: 68px;
+      text-align: center;
+      letter-spacing: 0.1px;
+      margin-top: 1px;
+    }
+    .req-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-default);
+      letter-spacing: 0.1px;
+      margin-bottom: 2px;
+    }
+    .req-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      letter-spacing: 0.12px;
+    }
+
+    /* Scope / systems list */
+    .scope-subsection-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 12px;
+    }
+    .system-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .system-row:last-child { margin-bottom: 0; }
+    .sys-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .sys-dot-ok { background: var(--success-icon); }
+    .sys-dot-pending { background: var(--bg-neutralsubtle); border: 1px solid var(--border-default); }
+    .sys-name { font-weight: 500; color: var(--text-default); min-width: 80px; }
+    .sys-desc { color: var(--text-secondary); flex: 1; }
+
+    /* Evidence tests */
+    .test-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border-top: 1px solid var(--border-weak);
+    }
+    .test-row:first-child { border-top: none; }
+    .test-info { flex: 1; min-width: 0; }
+    .test-name-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-default);
+      letter-spacing: 0.14px;
+      margin-bottom: 2px;
+    }
+    .test-subtext { font-size: 12px; color: var(--text-secondary); letter-spacing: 0.12px; }
+    .test-date { font-size: 12px; color: var(--text-secondary); white-space: nowrap; }
+
+    /* Coverage + gaps */
+    .coverage-bar {
+      height: 6px;
+      border-radius: 3px;
+      background: var(--bg-neutralsubtle);
+      overflow: hidden;
+      margin: 8px 0 6px;
+    }
+    .coverage-fill { height: 100%; border-radius: 3px; }
+    .gap-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 20px;
+      border-top: 1px solid var(--border-weak);
+    }
+    .gap-row:first-child { border-top: none; }
+    .gap-content { flex: 1; }
+    .gap-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-default);
+      letter-spacing: 0.14px;
+      margin-bottom: 4px;
+    }
+    .gap-detail { font-size: 12px; color: var(--text-secondary); letter-spacing: 0.12px; line-height: 1.5; }
+
+    /* Sidebar panels */
+    .sidebar-panel {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-weak);
+    }
+    .sidebar-panel:last-child { border-bottom: none; }
+    .sidebar-panel-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+    .sidebar-row {
+      display: flex;
+      gap: 8px;
+      font-size: 13px;
+      margin-bottom: 8px;
+      align-items: flex-start;
+    }
+    .sidebar-row:last-child { margin-bottom: 0; }
+    .sidebar-row-label {
+      color: var(--text-secondary);
+      min-width: 88px;
+      flex-shrink: 0;
+      letter-spacing: 0.12px;
+    }
+    .sidebar-row-value { color: var(--text-default); font-weight: 500; letter-spacing: 0.12px; }
+
+    /* Common control reference block */
+    .cc-block { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+    .cc-icon-wrap {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: var(--brand-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cc-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-default);
+      letter-spacing: 0.14px;
+      line-height: 1.3;
+      cursor: pointer;
+      transition: color 0.1s;
+    }
+    .cc-title:hover { color: var(--brand-primary); }
+    .cc-meta-row { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+    .cc-cat-label {
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--brand-primary-light);
+      color: var(--brand-primary);
+      font-weight: 500;
+    }
+    .cc-note { font-size: 13px; color: var(--text-secondary); line-height: 1.5; letter-spacing: 0.12px; }
+
+    /* Sidebar health rows */
+    .health-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 0;
+      font-size: 13px;
+    }
+    .health-row-label { color: var(--text-secondary); letter-spacing: 0.12px; }
+    .health-row-value { font-weight: 600; color: var(--text-default); letter-spacing: 0.12px; }
+
+    /* Clickable table rows */
+    tbody tr.clickable { cursor: pointer; }
+
+    /* ── AI Obligation Screen ── */
+    .ai-obligation-layout {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .ai-chat-panel {
+      width: 400px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border-weak);
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-default);
+    }
+
+    .ai-chat-header {
+      height: 56px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-weak);
+    }
+
+    .ai-chat-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-default);
+      letter-spacing: 0.14px;
+      flex: 1;
+      line-height: 1.3;
+    }
+
+    .ai-chat-body {
+      flex: 1;
+      overflow-y: auto;
+      background: #f5f3f3;
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .ai-user-msg {
+      align-self: flex-end;
+      max-width: 280px;
+      background: #e4e2e2;
+      border-radius: 12px 12px 2px 12px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--text-default);
+      line-height: 1.55;
+      letter-spacing: 0.12px;
+    }
+
+    .ai-system-msg {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .ai-system-text {
+      font-size: 13px;
+      color: var(--text-default);
+      line-height: 1.6;
+      letter-spacing: 0.12px;
+    }
+
+    .ai-option-card {
+      background: var(--bg-default);
+      border: 1px solid var(--border-weak);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--text-default);
+      line-height: 1.5;
+      cursor: pointer;
+      transition: background 0.1s, border-color 0.1s;
+    }
+
+    .ai-option-card:hover { background: var(--bg-neutralweak); border-color: var(--border-default); }
+    .ai-option-card strong { font-weight: 600; display: block; margin-bottom: 2px; }
+
+    .ai-action-card {
+      background: var(--bg-default);
+      border: 1px solid var(--border-weak);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .ai-action-card-header {
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-default);
+      border-bottom: 1px solid var(--border-weak);
+    }
+
+    .ai-action-options {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .ai-action-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--border-weak);
+      border-radius: 6px;
+      background: var(--bg-default);
+      font-size: 13px;
+      color: var(--text-default);
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.12px;
+      transition: background 0.1s;
+      width: 100%;
+    }
+
+    .ai-action-btn:hover { background: var(--bg-neutralweak); }
+
+    .ai-action-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--bg-neutralsubtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      flex-shrink: 0;
+      color: var(--text-secondary);
+    }
+
+    .ai-chat-ask {
+      padding: 14px 16px;
+      border-top: 1px solid var(--border-weak);
+      font-size: 13px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.12px;
+      cursor: text;
+      background: var(--bg-default);
+    }
+
+    .ai-canvas-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--bg-default);
+    }
+
+    .ai-canvas-header {
+      height: 56px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-weak);
+      background: var(--bg-default);
+    }
+
+    .ai-canvas-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: var(--brand-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ai-canvas-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-default);
+      letter-spacing: 0.14px;
+      flex: 1;
+    }
+
+    .ai-canvas-body {
+      flex: 1;
+      overflow-y: auto;
+      background: #f5f3f3;
+    }
+
+    .ai-canvas-content {
+      padding: 24px 24px 40px;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .canvas-page-hd {
+      background: var(--bg-default);
+      border-radius: 8px;
+      padding: 20px 24px 0;
+      border: 1px solid var(--border-weak);
+      overflow: hidden;
+    }
+
+    .canvas-page-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .canvas-page-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-default);
+      line-height: 1.3;
+    }
+
+    .canvas-page-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      letter-spacing: 0.12px;
+      margin-bottom: 14px;
+    }
+
+    .canvas-tabs {
+      display: flex;
+      gap: 0;
+      margin-top: 4px;
+    }
+
+    .canvas-tab {
+      height: 36px;
+      padding: 0 4px;
+      margin-right: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.14px;
+      white-space: nowrap;
+      transition: color 0.1s;
+    }
+
+    .canvas-tab:hover { color: var(--text-default); }
+    .canvas-tab.active {
+      color: var(--text-default);
+      border-bottom-color: var(--brand-primary);
+    }
+
+    .obligation-card {
+      background: var(--bg-default);
+      border: 1px solid var(--border-weak);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .obligation-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border-weak);
+      min-height: 48px;
+    }
+
+    .obligation-card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-default);
+      letter-spacing: 0.14px;
+    }
+
+    .obligation-card-body {
+      padding: 20px 24px;
+    }
+
+    .obligation-text {
+      font-size: 14px;
+      color: var(--text-default);
+      line-height: 1.6;
+      letter-spacing: 0.14px;
+    }
+
+    .ai-rec-section {
+      background: var(--bg-default);
+      border: 1px solid var(--border-weak);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .ai-rec-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border-weak);
+      min-height: 48px;
+    }
+
+    .ai-rec-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--brand-primary);
+      letter-spacing: 0.2px;
+    }
+
+    .ai-rec-section-body {
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .ai-rec-proposal {
+      font-size: 14px;
+      color: var(--text-default);
+      line-height: 1.6;
+      letter-spacing: 0.14px;
+    }
+
+    .ai-scope-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-default);
+      margin-bottom: 8px;
+      letter-spacing: 0.12px;
+    }
+
+    .ai-scope-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      line-height: 1.45;
+      letter-spacing: 0.12px;
+    }
+
+    .ai-scope-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-tertiary);
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    .ai-next-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .ai-next-lbl {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-default);
+      letter-spacing: 0.12px;
+    }
+
+    .ai-next-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-accept {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      border: 1px solid var(--brand-primary);
+      background: var(--brand-primary);
+      color: white;
+      letter-spacing: 0.12px;
+      transition: background 0.1s;
+    }
+
+    .btn-accept:hover { background: #7b2ac5; border-color: #7b2ac5; }
+
+    .btn-edit-plain {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      border: 1px solid var(--border-default);
+      background: var(--bg-default);
+      color: var(--text-default);
+      letter-spacing: 0.12px;
+      transition: background 0.1s;
+    }
+
+    .btn-edit-plain:hover { background: var(--bg-neutralweak); }
+
+    .ai-generated-lbl {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      letter-spacing: 0.1px;
+    }
+
+    .evidence-card {
+      background: var(--bg-default);
+      border: 1px solid var(--border-weak);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .evidence-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      min-height: 48px;
+    }
+
+    .evidence-card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-default);
+      letter-spacing: 0.14px;
+    }
+
+    .evidence-ai-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      font-size: 13px;
+      color: var(--text-default);
+      font-weight: 500;
+      border-top: 1px solid var(--border-weak);
+      border-bottom: 1px solid var(--border-weak);
+      background: var(--bg-neutralweak);
+    }
+
+    .evidence-test-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border-top: 1px solid var(--border-weak);
+    }
+
+    .evidence-test-row:first-of-type { border-top: none; }
+
+    .evidence-test-info { flex: 1; min-width: 0; }
+
+    .evidence-test-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-default);
+      letter-spacing: 0.14px;
+      margin-bottom: 2px;
+    }
+
+    .evidence-test-sub {
+      font-size: 12px;
+      color: var(--text-secondary);
+      letter-spacing: 0.12px;
+    }
+
+    /* Notification badge */
+    .notif-badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #e85c3a;
+      border: 1.5px solid white;
+    }
+
+    /* Info (blue) badge */
+    .badge-info {
+      background: #e1e9ff;
+      color: #2748c8;
+    }
+
+    /* Detail page description */
+    .detail-description {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      letter-spacing: 0.14px;
+      margin-top: 6px;
+      max-width: 640px;
+    }
+
+    .show-full-desc {
+      font-size: 14px;
+      color: var(--text-default);
+      text-decoration: underline;
+      cursor: pointer;
+      letter-spacing: 0.14px;
+      display: inline-block;
+      margin-top: 2px;
+    }
+
+    /* Priority sidebar sections */
+    .priority-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-weak);
+    }
+
+    .priority-section:last-child { border-bottom: none; }
+
+    .priority-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+
+    .priority-task-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      background: var(--bg-neutralweak);
+      border-radius: 8px;
+      border: 1px solid var(--border-weak);
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+
+    .priority-task-card:hover { background: #eeecec; }
+
+    .priority-task-text {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-default);
+      letter-spacing: 0.12px;
+      line-height: 1.4;
+    }
+
+    .priority-cc-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--border-weak);
+      border-radius: 8px;
+    }
+
+    .priority-cc-id {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .priority-cc-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-default);
+      letter-spacing: 0.12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .priority-ask-input {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--border-default);
+      border-radius: 6px;
+      background: var(--bg-default);
+      cursor: text;
+    }
+
+    .priority-ask-placeholder {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.12px;
+      flex: 1;
+    }
+
+    .ai-disclosure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.1px;
+    }
   </style>
 </head>
 <body>
@@ -1127,9 +2096,10 @@
   <!-- Trailing: utility icons + avatar -->
   <div class="global-bar-trailing">
     <div class="global-bar-utilities">
-      <!-- AI Assistant (sparkles) -->
-      <button class="util-btn" title="AI Assistant">
+      <!-- AI Assistant (sparkles) — has a pending obligation notification -->
+      <button class="util-btn" title="New obligation detected" onclick="viewAINotification()" style="position:relative;">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.2 3.5L13 7l-3.8 1.5L8 12l-1.2-3.5L3 7l3.8-1.5L8 2z" stroke="#545352" stroke-width="1.3" stroke-linejoin="round"/><path d="M13 1l.6 1.4L15 3l-1.4.6L13 5l-.6-1.4L11 3l1.4-.6L13 1z" stroke="#545352" stroke-width="1.1" stroke-linejoin="round"/></svg>
+        <span class="notif-badge"></span>
       </button>
       <!-- Help & Support -->
       <button class="util-btn" title="Help & support">
@@ -2296,6 +3266,465 @@
     </div><!-- /content-area -->
   </div><!-- /screen-inactive -->
 
+  <!-- ── Control Detail Screen ── -->
+  <div id="screen-detail" class="page-content" style="display:none;">
+
+    <!-- Header -->
+    <div class="detail-header">
+      <div class="detail-header-top">
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+          <span class="breadcrumb-link" onclick="backToListFromDetail()" style="cursor:pointer;">Controls</span>
+          <span class="breadcrumb-sep">/</span>
+          <span style="color:var(--text-default);font-weight:500;">Remote access</span>
+        </div>
+
+        <!-- Title + action -->
+        <div class="detail-title-row">
+          <div style="flex:1;min-width:0;">
+            <h1 class="detail-title">Remote access</h1>
+            <p class="detail-description">Establish and document usage restrictions, configuration/connection requirements, and implementation guidance for each type of remote access allowed; and b. Authorize each type of remote access to the system prior to allowing such connections.</p>
+            <a class="show-full-desc">Show full description</a>
+          </div>
+          <div style="flex-shrink:0;">
+            <button class="btn btn-primary" style="font-size:13px;padding:5px 12px;">Manage access</button>
+          </div>
+        </div>
+
+        <!-- Meta strip -->
+        <div class="detail-meta-strip" style="margin-top:10px;gap:6px;">
+          <!-- Needs evidence camera -->
+          <span class="badge badge-neutral" style="font-size:12px;padding:3px 8px;gap:5px;">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="var(--text-tertiary)" stroke-width="1.3" stroke-dasharray="2 2"/></svg>
+            Needs evidence camera
+          </span>
+          <!-- Owner -->
+          <div class="meta-item" style="gap:5px;">
+            <div class="meta-avatar" style="font-size:9px;background:#efeff5;color:#3b3a52;">A</div>
+            <span style="font-size:12px;color:var(--text-secondary);letter-spacing:0.12px;">James Adams</span>
+          </div>
+          <!-- In progress -->
+          <span class="badge badge-info" style="font-size:12px;padding:3px 8px;gap:5px;">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M8 5v3.5l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            In progress
+          </span>
+          <!-- 3 in progress count -->
+          <span class="badge badge-neutral" style="font-size:12px;padding:3px 8px;">3 in progress</span>
+        </div>
+
+      </div><!-- /detail-header-top -->
+
+      <!-- Tabs -->
+      <div class="detail-tabs-row">
+        <div class="detail-tab active" onclick="switchDetailTab(this,'detail-requirement')">Requirement</div>
+        <div class="detail-tab" onclick="switchDetailTab(this,'detail-mapped')">Mapped elements</div>
+        <div class="detail-tab" onclick="switchDetailTab(this,'detail-evidence-new')">Evidence</div>
+        <div class="detail-tab" onclick="switchDetailTab(this,'detail-maturity')">Maturity</div>
+        <div class="detail-tab" onclick="switchDetailTab(this,'detail-history')">History</div>
+        <div class="detail-tab" onclick="switchDetailTab(this,'detail-comments')">Comments</div>
+      </div>
+    </div><!-- /detail-header -->
+
+    <!-- Body -->
+    <div class="detail-body">
+
+      <!-- Main column -->
+      <div class="detail-main">
+
+        <!-- ── REQUIREMENT TAB ── -->
+        <div id="detail-requirement" class="detail-tab-panel active">
+
+          <!-- Requirement card -->
+          <div class="content-card">
+            <div class="card-header">
+              <span class="card-title">Requirement</span>
+            </div>
+            <div class="card-body">
+              <p style="font-size:14px;color:var(--text-default);line-height:1.6;letter-spacing:0.14px;">
+                Remote access is access to organizational systems (or processes acting on behalf of users) that communicate through the use of external networks, such as the Internet. Types of remote access include dial-up, broadband, and wireless. An organization can encrypt all transmissions of remote sessions using IETF compliant cryptographic algorithms as part of a network access control solution.
+              </p>
+            </div>
+          </div>
+
+          <!-- Implementation design card -->
+          <div class="content-card">
+            <div class="card-header">
+              <span class="card-title">Implementation design</span>
+              <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-tertiary);letter-spacing:0.1px;">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.2 3.5L13 7l-3.8 1.5L8 12l-1.2-3.5L3 7l3.8-1.5L8 2z" stroke="#8e34e3" stroke-width="1.2" stroke-linejoin="round"/><path d="M13 1l.5 1.2L14.7 2.7l-1.2.5L13 4.4l-.5-1.2L11.3 2.7l1.2-.5L13 1z" stroke="#8e34e3" stroke-width="0.9" stroke-linejoin="round"/></svg>
+                Generated by Vanta AI
+              </div>
+            </div>
+            <div class="card-body" style="display:flex;flex-direction:column;gap:20px;">
+              <p style="font-size:14px;color:var(--text-default);line-height:1.6;letter-spacing:0.14px;">
+                To control access to our systems remotely, we set up a few layers of protection. Anyone working remotely must connect through our VPN, and everyone needs to verify their identity with a second factor before logging in. We also set each session can only stay active for some time out. For engineers who need more access our policy says anyone who needs access to a production system has been verified, and every access session is logged automatically. All communication is happening over encrypted channels. We also have simulated automated systems testing so nothing is flying under the radar.
+              </p>
+              <div>
+                <div class="scope-subsection-label">Systems in scope</div>
+                <div class="system-row">
+                  <span class="sys-dot sys-dot-ok"></span>
+                  <span class="sys-name">AWS S3</span>
+                  <span class="sys-desc">Production data warehouse</span>
+                </div>
+                <div class="system-row">
+                  <span class="sys-dot sys-dot-ok"></span>
+                  <span class="sys-name">Snowflake</span>
+                  <span class="sys-desc">Production data warehouse</span>
+                </div>
+                <div class="system-row">
+                  <span class="sys-dot sys-dot-pending"></span>
+                  <span class="sys-name">Snowflake</span>
+                  <span class="sys-desc">Backup snapshots — protection config</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /detail-requirement -->
+
+        <!-- ── MAPPED ELEMENTS TAB ── -->
+        <div id="detail-mapped" class="detail-tab-panel">
+          <div class="content-card">
+            <div class="card-header"><span class="card-title">Mapped elements</span></div>
+            <div class="card-body"><p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">Framework mapping details will appear here.</p></div>
+          </div>
+        </div>
+
+        <!-- ── EVIDENCE TAB ── -->
+        <div id="detail-evidence-new" class="detail-tab-panel">
+          <div class="content-card">
+            <div class="card-header"><span class="card-title">Evidence</span></div>
+            <div class="card-body"><p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">Evidence tests will appear here.</p></div>
+          </div>
+        </div>
+
+        <!-- ── MATURITY TAB ── -->
+        <div id="detail-maturity" class="detail-tab-panel">
+          <div class="content-card">
+            <div class="card-header"><span class="card-title">Maturity</span></div>
+            <div class="card-body"><p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">Maturity information will appear here.</p></div>
+          </div>
+        </div>
+
+        <!-- ── HISTORY TAB ── -->
+        <div id="detail-history" class="detail-tab-panel">
+          <div class="content-card">
+            <div class="card-header"><span class="card-title">History</span></div>
+            <div class="card-body"><p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">Activity history will appear here.</p></div>
+          </div>
+        </div>
+
+        <!-- ── COMMENTS TAB ── -->
+        <div id="detail-comments" class="detail-tab-panel">
+          <div class="content-card">
+            <div class="card-header"><span class="card-title">Comments</span></div>
+            <div class="card-body"><p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">Comments will appear here.</p></div>
+          </div>
+        </div>
+
+      </div><!-- /detail-main -->
+
+      <!-- ── Priority Sidebar ── -->
+      <div class="detail-sidebar">
+
+        <!-- Today's top priority -->
+        <div class="priority-section">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <span style="font-size:13px;font-weight:600;color:var(--text-default);letter-spacing:0.12px;">Today's top priority for you</span>
+            <a style="font-size:12px;color:var(--brand-primary);text-decoration:none;cursor:pointer;letter-spacing:0.12px;">Why me?</a>
+          </div>
+          <!-- Task -->
+          <div class="priority-task-card">
+            <div class="checkbox" style="flex-shrink:0;margin-top:1px;"></div>
+            <span class="priority-task-text">Assign evidence camera</span>
+          </div>
+        </div>
+
+        <!-- Recommended controls -->
+        <div class="priority-section">
+          <div class="priority-section-label">Recommended controls</div>
+          <div class="priority-cc-item">
+            <div class="cc-icon-wrap" style="width:28px;height:28px;flex-shrink:0;">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="3" y="2" width="10" height="12" rx="1" stroke="#8e34e3" stroke-width="1.3"/><path d="M5.5 6h5M5.5 9h3" stroke="#8e34e3" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div style="flex:1;min-width:0;">
+              <div class="priority-cc-id">CC S2</div>
+              <div class="priority-cc-name">S3 Bucket Endpoint Check</div>
+            </div>
+            <button class="btn" style="font-size:12px;padding:4px 10px;flex-shrink:0;">Assign</button>
+          </div>
+        </div>
+
+        <!-- Ask follow up -->
+        <div class="priority-section">
+          <div class="priority-section-label">Ask follow up</div>
+          <div class="priority-ask-input">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;color:#8e34e3;"><path d="M8 2l1.2 3.5L13 7l-3.8 1.5L8 12l-1.2-3.5L3 7l3.8-1.5L8 2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M13 1l.5 1.2L14.7 2.7l-1.2.5L13 4.4l-.5-1.2L11.3 2.7l1.2-.5L13 1z" stroke="currentColor" stroke-width="0.9" stroke-linejoin="round"/></svg>
+            <span class="priority-ask-placeholder">Ask a question…</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;color:var(--text-secondary);"><path d="M14 8L4 13V3l10 5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="ai-disclosure">
+            <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.2 3.5L13 7l-3.8 1.5L8 12l-1.2-3.5L3 7l3.8-1.5L8 2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            Developed by Vanta AI
+          </div>
+        </div>
+
+        <!-- CC 14 reference card -->
+        <div class="priority-section">
+          <div class="cc-block" style="margin-bottom:8px;">
+            <div class="cc-icon-wrap">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="3" y="2" width="10" height="12" rx="1" stroke="#8e34e3" stroke-width="1.3"/><path d="M5.5 6h5M5.5 9h3" stroke="#8e34e3" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="cc-title">CC 14 — Remote access authentication</div>
+              <div class="cc-meta-row">
+                <span class="cc-cat-label">Access management</span>
+              </div>
+            </div>
+          </div>
+          <p class="cc-note">Verify the identity of remote users and devices before granting access to organizational systems.</p>
+          <div style="display:flex;gap:4px;margin-top:10px;flex-wrap:wrap;">
+            <span class="tag">Production</span>
+            <span class="tag">Staging</span>
+          </div>
+        </div>
+
+      </div><!-- /priority sidebar -->
+
+    </div><!-- /detail-body -->
+  </div><!-- /screen-detail -->
+
+
+  <!-- ── AI Obligation Screen ── -->
+  <div id="screen-ai-obligation" class="page-content" style="display:none;">
+    <div class="ai-obligation-layout">
+
+      <!-- Left: Chat Panel -->
+      <div class="ai-chat-panel">
+
+        <!-- Chat header -->
+        <div class="ai-chat-header">
+          <button class="util-btn" onclick="backFromAI()" title="Close" style="flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L6 8l4 5M3 3v10" stroke="#545352" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="ai-chat-title">New commitment detected: action needed</span>
+        </div>
+
+        <!-- Chat body -->
+        <div class="ai-chat-body">
+
+          <!-- User bubble -->
+          <div class="ai-user-msg">
+            The backup S3 buckets aren't in our current production encryption implementation. We also need a backup encryption strategy — can you draft a Vanta control for this?
+          </div>
+
+          <!-- AI system message -->
+          <div class="ai-system-msg">
+            <p class="ai-system-text">Good start — I also noticed your current backup account isn't connected to Vanta, so the existing rule can't run. Two options:</p>
+
+            <div class="ai-option-card">
+              <strong>Option A — Create a new control</strong>
+              Generate a new common control scoped to backup and DR environments, with AES-256 requirements, linked to the Acme Corp MSA.
+            </div>
+
+            <div class="ai-option-card">
+              <strong>Option B — Extend CC-14</strong>
+              Broaden the existing encryption-at-rest control to cover backup snapshots and add the two new systems to its scope.
+            </div>
+
+            <p class="ai-system-text" style="margin-top:4px;">I'd recommend Option B — it keeps your control library tighter and the production implementation is already solid. I've drafted an implementation design below for your review.</p>
+          </div>
+
+          <!-- Action card -->
+          <div class="ai-action-card">
+            <div class="ai-action-card-header">What would you like to do?</div>
+            <div class="ai-action-options">
+              <button class="ai-action-btn">
+                <span class="ai-action-num">1</span>
+                Proceed with Option A — new control
+              </button>
+              <button class="ai-action-btn">
+                <span class="ai-action-num">2</span>
+                Proceed with Option B — extend CC-14
+              </button>
+            </div>
+            <div class="ai-chat-ask">Ask a question…</div>
+          </div>
+
+        </div><!-- /ai-chat-body -->
+      </div><!-- /ai-chat-panel -->
+
+      <!-- Right: Canvas Panel -->
+      <div class="ai-canvas-panel">
+
+        <!-- Canvas toolbar -->
+        <div class="ai-canvas-header">
+          <div class="ai-canvas-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="2" width="10" height="12" rx="1" stroke="#8e34e3" stroke-width="1.3"/><path d="M5.5 6h5M5.5 9h3" stroke="#8e34e3" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+          <span class="ai-canvas-name">Obligation: Encryption at rest&nbsp;&nbsp;<span style="color:var(--text-tertiary);font-weight:400;">v1</span></span>
+          <!-- Select -->
+          <div style="display:flex;align-items:center;gap:6px;height:32px;padding:0 10px;border:1px solid var(--border-default);border-radius:6px;font-size:13px;font-weight:500;color:var(--text-default);background:var(--bg-default);cursor:pointer;letter-spacing:0.12px;">
+            Draft
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="width:1px;height:20px;background:var(--border-weak);flex-shrink:0;"></div>
+          <button class="util-btn" title="Share">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="12" cy="4" r="2" stroke="#545352" stroke-width="1.3"/><circle cx="4" cy="8" r="2" stroke="#545352" stroke-width="1.3"/><circle cx="12" cy="12" r="2" stroke="#545352" stroke-width="1.3"/><path d="M6 7l4-2M6 9l4 2" stroke="#545352" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </button>
+          <button class="util-btn" title="More actions">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="1.5" fill="#545352"/><circle cx="8" cy="8" r="1.5" fill="#545352"/><circle cx="12" cy="8" r="1.5" fill="#545352"/></svg>
+          </button>
+        </div>
+
+        <!-- Canvas scrollable content -->
+        <div class="ai-canvas-body">
+          <div class="ai-canvas-content">
+
+            <!-- Page header card (with tabs) -->
+            <div class="canvas-page-hd">
+              <div class="canvas-page-title-row">
+                <h1 class="canvas-page-title">Encryption at rest: backup environments</h1>
+                <button class="btn btn-primary" style="font-size:13px;padding:5px 14px;flex-shrink:0;">Manage control</button>
+              </div>
+              <p class="canvas-page-desc">All customer data must be encrypted at rest using AES-256 or equivalent. This applies to primary storage, backup systems, databases, and data systems — including both primary storage and backup environments — and must be verifiable through automated testing.</p>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+                <div class="meta-item" style="font-size:12px;">
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="11" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M5 2v2M11 2v2M2 7h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                  Last updated Apr 21, 2026
+                </div>
+                <span class="meta-divider"></span>
+                <span class="badge badge-neutral" style="font-size:11px;padding:2px 8px;">Draft</span>
+                <span class="meta-divider"></span>
+                <div class="meta-item" style="font-size:12px;">
+                  <div class="meta-avatar" style="width:18px;height:18px;font-size:8px;">JK</div>
+                  Jordan Kim
+                </div>
+              </div>
+              <!-- Tabs -->
+              <div class="canvas-tabs">
+                <div class="canvas-tab active">Overview</div>
+                <div class="canvas-tab">Implementation design</div>
+                <div class="canvas-tab">Evidence</div>
+                <div class="canvas-tab">Activity</div>
+              </div>
+            </div>
+
+            <!-- Obligation description card -->
+            <div class="obligation-card">
+              <div class="obligation-card-header">
+                <span class="obligation-card-title">Obligation</span>
+                <span style="font-size:12px;color:var(--text-secondary);letter-spacing:0.12px;">Acme Corp MSA · Addendum A §4.2</span>
+              </div>
+              <div class="obligation-card-body">
+                <p class="obligation-text">"Vanta shall ensure that all Customer Data stored at rest is protected using AES-256 encryption or equivalent, including data in primary storage systems, disaster recovery environments, and backup snapshots. Compliance shall be confirmed upon Customer's written request, no more than once per calendar quarter."</p>
+                <div style="display:flex;align-items:center;gap:6px;margin-top:14px;flex-wrap:wrap;">
+                  <span class="tag" style="background:var(--brand-primary-light);color:var(--brand-primary);">Acme Corp MSA</span>
+                  <span class="tag">Addendum A §4.2</span>
+                  <span class="tag">Signed Apr 21, 2026</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- AI Recommended implementation design -->
+            <div class="ai-rec-section">
+              <div class="ai-rec-section-header">
+                <div class="ai-rec-badge">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.2 3.5L13 7l-3.8 1.5L8 12l-1.2-3.5L3 7l3.8-1.5L8 2z" stroke="#8e34e3" stroke-width="1.3" stroke-linejoin="round"/><path d="M13 1l.5 1.2L14.7 2.7l-1.2.5L13 4.4l-.5-1.2L11.3 2.7l1.2-.5L13 1z" stroke="#8e34e3" stroke-width="1" stroke-linejoin="round"/></svg>
+                  AI Recommended
+                </div>
+                <span class="obligation-card-title">Implementation design</span>
+              </div>
+              <div class="ai-rec-section-body">
+                <p class="ai-rec-proposal">Extend the existing CC-14 production encryption implementation to cover backup and disaster recovery environments. All customer data at rest — whether in primary storage or backup snapshots — must be protected with AES-256 encryption and verifiable through automated testing.</p>
+
+                <div>
+                  <p class="ai-scope-label">Systems in scope <span style="font-weight:400;color:var(--text-secondary);">(2 added)</span></p>
+                  <div class="ai-scope-item">
+                    <span class="ai-scope-dot"></span>
+                    <span>AWS S3: backup buckets (arn:aws:s3:::acme-backup-*)</span>
+                  </div>
+                  <div class="ai-scope-item">
+                    <span class="ai-scope-dot"></span>
+                    <span>Snowflake: backup snapshots (daily, weekly retention tiers)</span>
+                  </div>
+                </div>
+
+                <div class="ai-next-row">
+                  <p class="ai-next-lbl">What would you like to do next?</p>
+                  <div class="ai-next-btns">
+                    <button class="btn-accept">Accept</button>
+                    <button class="btn-edit-plain">Edit</button>
+                  </div>
+                </div>
+
+                <div class="ai-generated-lbl">
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.2 3.5L13 7l-3.8 1.5L8 12l-1.2-3.5L3 7l3.8-1.5L8 2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                  Generated by Vanta AI
+                </div>
+              </div>
+            </div>
+
+            <!-- Evidence section -->
+            <div class="evidence-card">
+              <div class="evidence-card-header">
+                <span class="evidence-card-title">Evidence</span>
+                <button class="btn" style="font-size:12px;padding:4px 10px;">
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Add test
+                </button>
+              </div>
+              <div class="evidence-ai-row">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.2 3.5L13 7l-3.8 1.5L8 12l-1.2-3.5L3 7l3.8-1.5L8 2z" stroke="#8e34e3" stroke-width="1.3" stroke-linejoin="round"/></svg>
+                Vanta AI suggests 4 tests
+              </div>
+
+              <div class="evidence-test-row">
+                <span class="badge badge-neutral" style="flex-shrink:0;">Suggested</span>
+                <div class="evidence-test-info">
+                  <div class="evidence-test-name">S3 backup bucket AES-256 encryption check</div>
+                  <div class="evidence-test-sub">Automated · AWS S3</div>
+                </div>
+                <button class="btn" style="font-size:12px;padding:4px 10px;flex-shrink:0;">Add</button>
+              </div>
+
+              <div class="evidence-test-row">
+                <span class="badge badge-neutral" style="flex-shrink:0;">Suggested</span>
+                <div class="evidence-test-info">
+                  <div class="evidence-test-name">Snowflake backup snapshot encryption at rest</div>
+                  <div class="evidence-test-sub">Automated · Snowflake</div>
+                </div>
+                <button class="btn" style="font-size:12px;padding:4px 10px;flex-shrink:0;">Add</button>
+              </div>
+
+              <div class="evidence-test-row">
+                <span class="badge badge-neutral" style="flex-shrink:0;">Suggested</span>
+                <div class="evidence-test-info">
+                  <div class="evidence-test-name">AWS KMS key rotation for backup buckets</div>
+                  <div class="evidence-test-sub">Automated · AWS KMS</div>
+                </div>
+                <button class="btn" style="font-size:12px;padding:4px 10px;flex-shrink:0;">Add</button>
+              </div>
+
+              <div class="evidence-test-row">
+                <span class="badge badge-neutral" style="flex-shrink:0;">Suggested</span>
+                <div class="evidence-test-info">
+                  <div class="evidence-test-name">Quarterly encryption verification report</div>
+                  <div class="evidence-test-sub">Manual · Due Jun 30, 2026</div>
+                </div>
+                <button class="btn" style="font-size:12px;padding:4px 10px;flex-shrink:0;">Add</button>
+              </div>
+
+            </div><!-- /evidence-card -->
+
+          </div><!-- /ai-canvas-content -->
+        </div><!-- /ai-canvas-body -->
+      </div><!-- /ai-canvas-panel -->
+
+    </div><!-- /ai-obligation-layout -->
+  </div><!-- /screen-ai-obligation -->
+
 </div><!-- /appshell -->
 
 <script>
@@ -2358,6 +3787,50 @@
     document.querySelector('.page-content').style.display = '';
   }
 
+  function viewDetail() {
+    closeAllDropdowns();
+    document.querySelector('.page-content').style.display = 'none';
+    document.getElementById('screen-inactive').style.display = 'none';
+    const detail = document.getElementById('screen-detail');
+    detail.style.display = 'flex';
+    detail.style.flexDirection = 'column';
+    // Reset to overview tab
+    document.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.detail-tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelector('.detail-tab').classList.add('active');
+    document.getElementById('detail-requirement').classList.add('active');
+  }
+
+  function backToListFromDetail() {
+    document.getElementById('screen-detail').style.display = 'none';
+    document.querySelector('.page-content').style.display = '';
+  }
+
+  function viewAINotification() {
+    closeAllDropdowns();
+    document.querySelector('.page-content').style.display = 'none';
+    document.getElementById('screen-inactive').style.display = 'none';
+    document.getElementById('screen-detail').style.display = 'none';
+    const s = document.getElementById('screen-ai-obligation');
+    s.style.display = 'flex';
+    s.style.flexDirection = 'column';
+    // Remove the notification badge once viewed
+    const badge = document.querySelector('.notif-badge');
+    if (badge) badge.style.display = 'none';
+  }
+
+  function backFromAI() {
+    document.getElementById('screen-ai-obligation').style.display = 'none';
+    document.querySelector('.page-content').style.display = '';
+  }
+
+  function switchDetailTab(el, id) {
+    el.closest('.detail-tabs-row').querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    document.querySelectorAll('.detail-tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
   /* ── Tag overflow ── */
   function initTagOverflow() {
     document.querySelectorAll('.tag-list').forEach(list => {
@@ -2390,7 +3863,18 @@
     });
   }
 
-  window.addEventListener('load', initTagOverflow);
+  window.addEventListener('load', function() {
+    initTagOverflow();
+    // Make all control table rows navigate to the detail view
+    document.querySelectorAll('#panel-common table tbody tr, #panel-framework table tbody tr').forEach(tr => {
+      tr.classList.add('clickable');
+      tr.addEventListener('click', function(e) {
+        if (!e.target.closest('.row-action-btn') && !e.target.closest('.checkbox')) {
+          viewDetail();
+        }
+      });
+    });
+  });
 </script>
 
 </body>
