@@ -572,6 +572,57 @@
       background: var(--bg-neutral);
     }
 
+    /* Implementation summary bar */
+    .impl-summary {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px;
+      background: #fff8f7;
+      border: 1px solid #fcd4c8;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .impl-summary-icon {
+      width: 20px; height: 20px; border-radius: 4px;
+      background: #fde8e3; color: var(--error-text);
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .impl-summary-text {
+      flex: 1; font-size: 13px; color: var(--text-default); line-height: 1.4;
+    }
+    .impl-summary-failing {
+      font-weight: 600; color: var(--error-text);
+    }
+    .impl-summary-chips {
+      display: flex; flex-wrap: wrap; gap: 5px;
+      margin-top: 5px;
+    }
+    .impl-summary-chip {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 2px 7px; border-radius: 3px;
+      font-size: 11px; font-weight: 500;
+      background: #fde8e3; color: var(--error-text);
+      border: 1px solid #fbc9bc;
+    }
+    .impl-summary-chip-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--error-text); flex-shrink: 0;
+    }
+    .impl-summary-agg {
+      display: flex; align-items: center; gap: 10px;
+      flex-shrink: 0;
+    }
+    .impl-agg-stat {
+      display: flex; flex-direction: column; align-items: center; gap: 1px;
+    }
+    .impl-agg-value {
+      font-size: 16px; font-weight: 600; line-height: 1;
+    }
+    .impl-agg-value.fail { color: var(--error-text); }
+    .impl-agg-value.pass { color: var(--success-text); }
+    .impl-agg-label { font-size: 10px; color: var(--text-tertiary); white-space: nowrap; }
+    .impl-agg-divider { width: 1px; height: 24px; background: #fbc9bc; }
+
     /* Implementation blocks */
     .impl-blocks { display: flex; flex-direction: column; gap: 8px; }
     .impl-block {
@@ -954,6 +1005,37 @@
               </span>
             </div>
             <div class="card-body">
+
+              <!-- Implementation summary -->
+              <div class="impl-summary">
+                <div class="impl-summary-icon">
+                  <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M8 5v4M8 11.5v.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3.3 13.5h9.4c1.1 0 1.8-1.2 1.2-2.1L9.2 3.4c-.6-1-2-1-2.6 0L2.1 11.4c-.6.9.1 2.1 1.2 2.1Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="impl-summary-text">
+                  <span class="impl-summary-failing">2 blocks failing</span> — attention required before this control can pass
+                  <div class="impl-summary-chips">
+                    <span class="impl-summary-chip"><span class="impl-summary-chip-dot"></span>Privileged access via secure gateway <span style="font-weight:400;opacity:.75;">1/2 tests failing</span></span>
+                    <span class="impl-summary-chip"><span class="impl-summary-chip-dot"></span>Remote access catalog <span style="font-weight:400;opacity:.75;">0/1 tests passing</span></span>
+                  </div>
+                </div>
+                <div class="impl-summary-agg">
+                  <div class="impl-agg-stat">
+                    <span class="impl-agg-value pass">2</span>
+                    <span class="impl-agg-label">passing</span>
+                  </div>
+                  <div class="impl-agg-divider"></div>
+                  <div class="impl-agg-stat">
+                    <span class="impl-agg-value fail">2</span>
+                    <span class="impl-agg-label">failing</span>
+                  </div>
+                  <div class="impl-agg-divider"></div>
+                  <div class="impl-agg-stat">
+                    <span class="impl-agg-value" style="color:var(--text-default);">4</span>
+                    <span class="impl-agg-label">total</span>
+                  </div>
+                </div>
+              </div>
+
               <div class="impl-blocks">
 
                 <div class="impl-block">
