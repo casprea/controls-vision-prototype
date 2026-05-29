@@ -572,6 +572,53 @@
       background: var(--bg-neutral);
     }
 
+    /* Implementation summary bar */
+    .impl-summary {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .impl-summary-icon {
+      width: 22px; height: 22px; border-radius: 5px;
+      background: var(--bg-neutral); color: var(--text-tertiary);
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .impl-summary-text {
+      flex: 1; font-size: 13px; color: var(--text-default); line-height: 1.4;
+    }
+    .impl-summary-failing {
+      font-weight: 600; color: var(--text-default);
+    }
+    .impl-summary-chips {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-top: 7px;
+    }
+    .impl-summary-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 3px 8px; border-radius: 4px;
+      font-size: 11px; font-weight: 500;
+      background: var(--bg-lowered); color: var(--text-quiet);
+      border: 1px solid var(--border-default);
+    }
+    .impl-summary-chip-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--error-text); flex-shrink: 0;
+    }
+    .impl-summary-agg {
+      display: flex; align-items: center; gap: 12px;
+      flex-shrink: 0;
+    }
+    .impl-agg-stat {
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+    }
+    .impl-agg-value {
+      font-size: 17px; font-weight: 600; line-height: 1;
+      color: var(--text-default);
+    }
+    .impl-agg-value.fail { color: var(--error-text); }
+    .impl-agg-value.pass { color: var(--success-text); }
+    .impl-agg-label { font-size: 10px; color: var(--text-tertiary); white-space: nowrap; }
+    .impl-agg-divider { width: 1px; height: 26px; background: var(--border-default); }
+
     /* Implementation blocks */
     .impl-blocks { display: flex; flex-direction: column; gap: 8px; }
     .impl-block {
@@ -929,18 +976,37 @@
         <!-- Main content -->
         <div class="detail-main">
 
-          <!-- Requirement card -->
+          <!-- Implementation summary card -->
           <div class="card">
-            <div class="card-header">
-              <span class="card-title">Requirement</span>
-            </div>
             <div class="card-body">
-              <div class="soc-chip">
-                <div class="soc-icon">S2</div>
-                <span class="soc-label">SOC 2</span>
+              <div class="impl-summary">
+                <div class="impl-summary-icon">
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 5v4M8 11.5v.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3.3 13.5h9.4c1.1 0 1.8-1.2 1.2-2.1L9.2 3.4c-.6-1-2-1-2.6 0L2.1 11.4c-.6.9.1 2.1 1.2 2.1Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="impl-summary-text">
+                  <span class="impl-summary-failing">2 implementation designs are failing.</span> — attention required before this control can pass
+                  <div class="impl-summary-chips">
+                    <span class="impl-summary-chip"><span class="impl-summary-chip-dot"></span>Privileged access via secure gateway <span style="font-weight:400;color:var(--text-tertiary);">1/2 tests failing</span></span>
+                    <span class="impl-summary-chip"><span class="impl-summary-chip-dot"></span>Remote access catalog <span style="font-weight:400;color:var(--text-tertiary);">0/1 tests passing</span></span>
+                  </div>
+                </div>
+                <div class="impl-summary-agg">
+                  <div class="impl-agg-stat">
+                    <span class="impl-agg-value pass">2</span>
+                    <span class="impl-agg-label">passing</span>
+                  </div>
+                  <div class="impl-agg-divider"></div>
+                  <div class="impl-agg-stat">
+                    <span class="impl-agg-value fail">2</span>
+                    <span class="impl-agg-label">failing</span>
+                  </div>
+                  <div class="impl-agg-divider"></div>
+                  <div class="impl-agg-stat">
+                    <span class="impl-agg-value">4</span>
+                    <span class="impl-agg-label">total</span>
+                  </div>
+                </div>
               </div>
-              <p class="card-text">Remote access is access to organizational systems (or processes acting on behalf of users) that communicate through external networks such as the Internet. Types of remote access include dial-up, broadband, and wireless. Organizations use encrypted virtual private networks (VPNs) to enhance confidentiality and integrity for remote connections. The use of encryp...</p>
-              <a class="card-link">Show full requirement</a>
             </div>
           </div>
 
@@ -1180,6 +1246,17 @@
                 <span class="source-value">Enhanced</span>
               </div>
             </div>
+          </div>
+
+          <!-- Requirement -->
+          <div class="sidebar-section">
+            <div class="sidebar-section-label">Requirement</div>
+            <div class="soc-chip">
+              <div class="soc-icon">S2</div>
+              <span class="soc-label">SOC 2</span>
+            </div>
+            <p class="card-text" style="font-size:13px;margin-bottom:10px;">Remote access is access to organizational systems (or processes acting on behalf of users) that communicate through external networks such as the Internet. Types of remote access include dial-up, broadband, and wireless. Organizations use encrypted virtual private networks (VPNs) to enhance confidentiality and integrity for remote connections...</p>
+            <a class="card-link" style="font-size:13px;">Show full requirement</a>
           </div>
 
           <!-- Common control -->
